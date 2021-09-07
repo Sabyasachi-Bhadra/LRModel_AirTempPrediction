@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h2 style="text-align: center">PREDICT AIR TEMPERATURE</h2>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <h3>Choose Engine Type</h3><select name="type_" id="type_"> 
+    <option value="L">Low</option>
+    <option value="M">Medium</option>
+    <option value="H"> High</option>
+ </select>
+            <h3>Enter Process Temperature in K</h3><input type="number" name="process_temp" id="process_temp" step="0.01" placeholder="Process Temp">
+            <h3>Enter Rotational Speed RPM</h3><input type="number" name="rotational_speed" id= "rotational_speed" placeholder="Rotational Speed">
+            <h3>Enter Torque NM</h3><input type="number" name="torque" id="torque" step="0.01" placeholder="Torque">
+            <h3>Enter Tool Wear MIN</h3><input type="number" name="tool_wear" id="tool_wear" step="0.01" placeholder="Tool Wear">
+            <h3>Choose TWF between 0 and 1</h3><select name="twf" id="twf">
+    <option value="0">0</option>
+    <option value="1">1</option>
+</select>
+            <h3>Choose HDF between 0 and 1</h3><select name="hdf" id="hdf">
+    <option value="0">0</option>
+    <option value="1">1</option>
+</select> 
+            <h3>Choose PWF between 0 and 1</h3><select name="pwf" id="pwf">
+    <option value="0">0</option>
+    <option value="1">1</option>
+</select>   
+            <h3>Choose OSF between 0 and 1</h3><select name="osf" id="osf">
+    <option value="0">0</option>
+    <option value="1">1</option>
+</select>
+            <h3>Choose RNF between 0 and 1</h3><select name="rnf" id="rnf">
+    <option value="0">0</option>
+    <option value="1">1</option>
+</select>
+
+        <h3>Check Air Temperature</h3><input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+{% endblock %}
